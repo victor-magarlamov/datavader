@@ -131,4 +131,14 @@ validate([object]).check([property]).with('length', [options])
 
 validate([object]).check([property]).with('numericaly', [options])
 
-|numericaly|isInteger, isOdd, isEvent, equalTo, otherThan, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo|
+|options|behavior|
+|----|-------|
+|{isInteger: true}|
+|{isOdd: true}|
+|{isEven: true}|
+|{equalTo: 5}|
+|{otherThan: 5}|
+|{greaterThan: 5}|
+|{greaterThanOrEqualTo: 5}|
+|{lessThan: 5}|
+|{lessThanOrEqualTo: 5}|
