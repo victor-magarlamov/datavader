@@ -52,7 +52,7 @@ validateByScheme(user, scheme);
 // use addCustomValidator and addCustomOptions to define custom rule
 
 const customValidator = ({firstName, lastName}) => {
-  return value1 !== value2;
+  return firstName !== lastName;
 }
   
 const customOptions = (item) => {
