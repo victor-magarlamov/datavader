@@ -72,7 +72,7 @@ validate(user).check('firstName').with('firstNameNotEqLastName', {});
 
 ## Validators
 
-**presence**
+### presence
 
 validate([object]).check([property]).with('presence', [options])
 
@@ -83,7 +83,7 @@ validate([object]).check([property]).with('presence', [options])
 |{exist: true, allowBlank: true}|true if property is empty|
 |{exist: false}|true if property is undefined or null or empty|
 
-**absence**
+### absence
 
 validate([object]).check([property]).with('absence', [options])
 
@@ -92,7 +92,7 @@ validate([object]).check([property]).with('absence', [options])
 |{exist: false}|true if property is undefined|
 |{exist: true}|false if property is undefined|
 
-**confirmation**
+### confirmation
 
 validate([object]).check([property]).with('confirmation', {})
 
@@ -100,7 +100,7 @@ validate([object]).check([property]).with('confirmation', {})
 |----|-------|
 |{}|true if object has property with same name and suffix "_confirmation"
 
-**inclusion**
+### inclusion
 
 validate([object]).check([property]).with('inclusion', [options])
 
@@ -108,7 +108,7 @@ validate([object]).check([property]).with('inclusion', [options])
 |----|-------|
 |{values: []}|true if property value includes in an array
 
-**exclusion**
+### exclusion
 
 validate([object]).check([property]).with('exclusion', [options])
 
@@ -116,7 +116,7 @@ validate([object]).check([property]).with('exclusion', [options])
 |----|-------|
 |{values: []}|true if property value does not include in an array
 
-**length**
+### length
 
 validate([object]).check([property]).with('length', [options])
 
@@ -127,7 +127,7 @@ validate([object]).check([property]).with('length', [options])
 |{max: 5}|true if length < 5
 |{min: 1, max: 5}|true if length >= 1 and < 5
 
-**numericaly**
+### numericaly
 
 validate([object]).check([property]).with('numericaly', [options])
 
