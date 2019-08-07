@@ -1,0 +1,5 @@
+node_modules
+build
+webpack.config.js
+src/__tests__
+src/__mocks__

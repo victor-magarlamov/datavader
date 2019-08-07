@@ -1,0 +1,68 @@
+{
+  "name": "datavader",
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "JavaScript Data Validator",
+  "author": "Victor Magarlamov <victor.magarlamov@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victor-magarlamov/datavader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/victor-magarlamov/datavader/issues"
+  },
+  "engines": {
+    "node": ">8.0.0"
+  },
+  "keywords": [
+    "js",
+    "form",
+    "validation",
+    "validator"
+  ],
+  "main": "build/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint '**/*.ts'",
+    "build": "webpack -p",
+    "prepublish": "npm run lint && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.0",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-typescript": "^7.0.0-alpha.19",
+    "eslint": "^6.1.0",
+    "jest": "^24.8.0",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "babel": {
+    "presets": [
+      "@babel/typescript",
+      "@babel/preset-env"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testEnvironment": "node"
+  }
+}
