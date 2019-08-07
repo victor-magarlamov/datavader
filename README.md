@@ -70,12 +70,14 @@ validate(user).check('firstName').with('firstNameNotEqLastName', {});
 ```
 ### Validators
 
-|name|options|description|
-|----|-------|-----------|
-|presence|exist, allowNull, allowBlank||
-|absence|exist||
-|confirmation|||
-|inclusion|values||
-|exclusion|values||
-|length|is, min, max||
-|numericaly|isInteger, isOdd, isEvent, equalTo, otherThan, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo||
+|name|options|
+|----|-------|
+|presence|exist, allowNull, allowBlank|
+|absence|exist|
+|confirmation||
+|inclusion|values|
+|exclusion|values|
+|length|is, min, max|
+|numericaly|isInteger, isOdd, isEvent, equalTo, otherThan, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo|
+
+### Examples
