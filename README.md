@@ -2,6 +2,7 @@
 A library for object validation
 
 ## Install
+npm i datavader
 
 ## Usage
 
