@@ -69,8 +69,6 @@ addCustomOptions('firstNameNotEqLastName', customOptions);
 validate(user).check('firstName').with('firstNameNotEqLastName', {});
 
 ```
-### Validators
-
 |name|options|
 |----|-------|
 |presence|exist, allowNull, allowBlank|
@@ -81,4 +79,56 @@ validate(user).check('firstName').with('firstNameNotEqLastName', {});
 |length|is, min, max|
 |numericaly|isInteger, isOdd, isEvent, equalTo, otherThan, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo|
 
-### Examples
+## Validators
+
+**presence**
+
+validate([object]).check([property]).with('presence', [options])
+
+|options|behavior|
+|----|-------|
+|{exist: true}|true if property is not null and its length > 0|
+|{exist: true, allowNull: true}|true if property is null|
+|{exist: true, allowBlank: true}|true if property is empty|
+|{exist: false}|true if property is undefined or null or empty|
+
+**absence**
+
+validate([object]).check([property]).with('absence', [options])
+
+|options|behavior|
+|----|-------|
+|{exist: false}|true if property is undefined|
+|{exist: true}|false if property is undefined|
+
+**confirmation**
+
+validate([object]).check([property]).with('confirmation', {})
+
+|options|behavior|
+|----|-------|
+|{}|true if object has property with same name and suffix "_confirmation"
+
+**inclusion**
+
+validate([object]).check([property]).with('inclusion', [options])
+
+|options|behavior|
+|----|-------|
+|{values: []}|true if property value includes in an array
+
+**exclusion**
+
+validate([object]).check([property]).with('exclusion', [options])
+
+|options|behavior|
+|----|-------|
+|{values: []}|true if property value does not include in an array
+
+**length**
+
+validate([object]).check([property]).with('length', [options])
+
+**numericaly**
+
+validate([object]).check([property]).with('numericaly', [options])
