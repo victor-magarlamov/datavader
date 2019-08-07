@@ -69,15 +69,6 @@ addCustomOptions('firstNameNotEqLastName', customOptions);
 validate(user).check('firstName').with('firstNameNotEqLastName', {});
 
 ```
-|name|options|
-|----|-------|
-|presence|exist, allowNull, allowBlank|
-|absence|exist|
-|confirmation||
-|inclusion|values|
-|exclusion|values|
-|length|is, min, max|
-|numericaly|isInteger, isOdd, isEvent, equalTo, otherThan, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo|
 
 ## Validators
 
@@ -129,6 +120,15 @@ validate([object]).check([property]).with('exclusion', [options])
 
 validate([object]).check([property]).with('length', [options])
 
+|options|behavior|
+|----|-------|
+|{in: 5}|true if length === 5
+|{min: 5}|true if length >= 5
+|{max: 5}|true if length < 5
+|{min: 1, max: 5}|true if length >= 1 and < 5
+
 **numericaly**
 
 validate([object]).check([property]).with('numericaly', [options])
+
+|numericaly|isInteger, isOdd, isEvent, equalTo, otherThan, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo|
