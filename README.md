@@ -28,6 +28,7 @@ validate(user).check('age').with('numericality', {greaterThan: 60});
 validate(user).check('quality').with('exclusion', {values: ['kind', 'gentle']});
 
 // use validateByScheme method to validate the whole object
+
 const scheme = {
   name: {
     presence: {exist: true},
@@ -35,9 +36,6 @@ const scheme = {
       min: 1,
       max: 10,
     },
-  },
-  lastName: {
-    absence: {},
   },
   age: {
     numericality: {
@@ -50,4 +48,23 @@ const scheme = {
 }
 
 validateByScheme(user, scheme);
+
+// use addCustomValidator and addCustomOptions to define custom rule
+
+const customValidator = ({firstName, lastName}) => {
+  return value1 !== value2;
+}
+  
+const customOptions = (item) => {
+  return {
+    firstName: item.firstName,
+    lastName: item.lastName,
+  }
+}
+
+addCustomValidator('firstNameNotEqLastName', customValidator);
+addCustomOptions('firstNameNotEqLastName', customOptions);
+
+validate(user).check('firstName').with('firstNameNotEqLastName', {});
+
 ```
