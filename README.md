@@ -1,4 +1,4 @@
-# datavader
+# DATAVADER
 A library for object validation
 
 ## Install
@@ -146,6 +146,30 @@ validate([object]).check([property]).with('numericaly', [options])
 
 ## Validation of of the entire object
 
+The validators we saw above let you check a single property. But you can check the whole object with the **validateByScheme** method. This method takes two arguments:
+1. object
+2. validation scheme
+
+Validation scheme example: 
+```js
+{
+  username: {
+    presence: {exist: true},
+    length: {min: 2, max: 8}
+  },
+  password: {
+    confirmation: {},
+    length: {min: 6, max: 20}
+  }
+}
+```
+If there are any errors, it will return an array with failed rules:
+```js
+{
+  username: ['presence'],
+  password: ['confirmation', ''length]
+}
+```
 
 ## Customization
 
