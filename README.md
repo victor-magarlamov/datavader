@@ -154,7 +154,7 @@ For expample let's create *isEmail* rule.
 ```js
 const isEmailValidator = ({value, domains}) => {
   const reg = new RegExp(`^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(${domains.join('|')})\.com$`, 'ig');
-  return regex.test(value)
+  return reg.test(value)
 }
 ```
 Now you should register it as a validation rule.
