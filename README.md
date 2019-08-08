@@ -144,7 +144,7 @@ validate([object]).check([property]).with('numericaly', [options])
 |{lessThan: 5}|
 |{lessThanOrEqualTo: 5}|
 
-## Validation of of the entire object
+## Validation of the entire object
 
 The validators we saw above let you check a single property. But you can check the whole object with the **validateByScheme** method. This method takes two arguments:
 1. object
