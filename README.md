@@ -46,6 +46,7 @@ const scheme = {
       isInteger: true,
     },
   }
+  ...
 }
 
 validateByScheme(user, scheme);
@@ -142,3 +143,8 @@ validate([object]).check([property]).with('numericaly', [options])
 |{greaterThanOrEqualTo: 5}|
 |{lessThan: 5}|
 |{lessThanOrEqualTo: 5}|
+
+
+## Customization
+
+You can create your own validator and register one with **addCustomValidator** method.
