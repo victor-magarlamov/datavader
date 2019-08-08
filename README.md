@@ -99,7 +99,7 @@ validate([object]).check([property]).with('confirmation', {})
 
 |options|behavior|
 |----|-------|
-|{}|true if object has property with same name and suffix "_confirmation"
+|{}|true if object has property with same name and suffix *_confirmation* and its value === property value
 
 ### inclusion
 
@@ -167,3 +167,32 @@ And ater that you can use it.
 validate(user).check('email').with('isEmail', {domains: ['wubba', 'lubba', 'dub']});
 ```
 
+By default each validator gets the following parameters:
+
+1. property value
+2. and options from *with* method
+
+You can change it with **addCustomOptions** method.
+
+For example, look at the *confirmation* validator. It returns true if the object has property with a suffix *_confirmation*.
+
+```js
+const confirmation = (params) => {
+  const {value, valueConfirmation} = params;
+  return value === valueConfirmation;
+}
+```
+To set the correct values into parameters we should create special method.
+```js
+const foo = (item, property, options) => {
+  return {
+    value: item[property],
+    valueConfirmation: item[`${property}_confirmation`],
+  }
+}
+```
+...and register it by validator name.
+
+```js
+addCustomOptions('confirmation', foo);
+```
