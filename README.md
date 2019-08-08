@@ -148,3 +148,22 @@ validate([object]).check([property]).with('numericaly', [options])
 ## Customization
 
 You can create your own validator and register one with **addCustomValidator** method.
+
+For expample let's create *isEmail* rule.
+
+```js
+const isEmailValidator = ({value, domains}) => {
+  const reg = new RegExp(`^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(${domains.join('|')})\.com$`, 'ig');
+  return regex.test(value)
+}
+```
+Now you should register it as a validation rule.
+
+```js
+addCustomValidator('isEmail', isEmailValidator);
+```
+And ater that you can use it.
+```js
+validate(user).check('email').with('isEmail', {domains: ['wubba', 'lubba', 'dub']});
+```
+
