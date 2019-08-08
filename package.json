@@ -1,6 +1,6 @@
 {
   "name": "datavader",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "ISC",
   "description": "JavaScript Data Validator",
   "author": "Victor Magarlamov <victor.magarlamov@gmail.com>",
@@ -21,6 +21,7 @@
     "validator"
   ],
   "main": "build/index.js",
+  "typings": "build/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "eslint '**/*.ts'",
