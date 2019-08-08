@@ -14,9 +14,6 @@ import { validate, validateByScheme, addCustomValidator, addCustomOptions } from
 const user = {
   name: 'Rick',
   age: 70,
-  password: 'rikitikitavibitch',
-  password_confirmation: 'rikitikitavibitch',
-  email: 'lickmyballs@bitch.com',
   quality: 'alcoholic',
   catchphrase: 'wubba lubba dub-dub',
   relatives: ['morty', 'summer', 'beth']
