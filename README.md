@@ -144,6 +144,8 @@ validate([object]).check([property]).with('numericaly', [options])
 |{lessThan: 5}|
 |{lessThanOrEqualTo: 5}|
 
+## Validation of of the entire object
+
 
 ## Customization
 
