@@ -167,6 +167,7 @@ And ater that you can use it.
 validate(user).check('email').with('isEmail', {domains: ['wubba', 'lubba', 'dub']});
 ```
 
+
 By default each validator gets the following parameters:
 
 1. property value
