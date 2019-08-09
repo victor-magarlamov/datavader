@@ -7,7 +7,7 @@ npm i datavader
 ## Usage
 
 ```js
-import { validate, validateByScheme, addCustomValidator, addCustomOptions } from 'datavader';
+import { validate, validateByScheme, addValidatorRule, addParameterRule } from 'datavader';
 
 // it will be tested
 
@@ -22,7 +22,7 @@ const user = {
 // use validate method to сheck a single property
 
 validate(user).check('name').with('presence', {exist: true});
-validate(user).check('age').with('numericality', {greaterThan: 60});
+validate(user).check('age').with('number', {greaterThan: 60});
 validate(user).check('quality').with('exclusion', {values: ['kind', 'gentle']});
 
 // use validateByScheme method to validate the whole object
@@ -36,7 +36,7 @@ const scheme = {
     },
   },
   age: {
-    numericality: {
+    number: {
       lessThan: 80,
       greaterThanOrEqualTo: 70,
       isEven: true;
@@ -48,7 +48,7 @@ const scheme = {
 
 validateByScheme(user, scheme);
 
-// use addCustomValidator and addCustomOptions to define custom rule
+// use addValidatorRule and addParameterRule to define custom rule
 
 const customValidator = ({firstName, lastName}) => {
   return firstName !== lastName;
@@ -61,8 +61,8 @@ const customOptions = (item) => {
   }
 }
 
-addCustomValidator('firstNameNotEqLastName', customValidator);
-addCustomOptions('firstNameNotEqLastName', customOptions);
+addValidatorRule('firstNameNotEqLastName', customValidator);
+addParameterRule('firstNameNotEqLastName', customOptions);
 
 validate(user).check('firstName').with('firstNameNotEqLastName', {});
 
@@ -125,9 +125,9 @@ validate([object]).check([property]).with('length', [options])
 |{max: 5}|true if length < 5
 |{min: 1, max: 5}|true if length >= 1 and < 5
 
-### numericaly
+### number
 
-validate([object]).check([property]).with('numericaly', [options])
+validate([object]).check([property]).with('number', [options])
 
 |options|behavior|
 |----|-------|
@@ -170,7 +170,7 @@ If there are any errors, it will return an array with failed rules:
 
 ## Customization
 
-You can create your own validator and register one with **addCustomValidator** method.
+You can create your own validator and register one with **addValidatorRule** method.
 
 For expample let's create *isEmail* rule.
 
@@ -183,7 +183,7 @@ const isEmailValidator = ({value, domains}) => {
 Now you should register it as a validation rule.
 
 ```js
-addCustomValidator('isEmail', isEmailValidator);
+addValidatorRule('isEmail', isEmailValidator);
 ```
 And ater that you can use it.
 ```js
@@ -196,7 +196,7 @@ By default each validator gets the following parameters:
 1. property value
 2. and options from *with* method
 
-You can change it with **addCustomOptions** method.
+You can change it with **addParameterRule** method.
 
 For example, look at the *confirmation* validator. It returns true if the object has property with a suffix *_confirmation*.
 
@@ -218,5 +218,5 @@ const foo = (item, property, options) => {
 ...and register it by validator name.
 
 ```js
-addCustomOptions('confirmation', foo);
+addParameterRule('confirmation', foo);
 ```
