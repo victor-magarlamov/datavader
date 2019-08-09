@@ -156,88 +156,88 @@ describe('length', () => {
   });
 });
 
-describe('numericality', () => {
+describe('number', () => {
   it('returns true if is Integer', () => {
-    expect(validators.numericality({value: 50, isInteger: true})).toBe(true);
+    expect(validators.number({value: 50, isInteger: true})).toBe(true);
   });
   
   it('returns false if is not Integer', () => {
-    expect(validators.numericality({value: 50.1, isInteger: true})).toBe(false);
+    expect(validators.number({value: 50.1, isInteger: true})).toBe(false);
   });
   
   it('returns true if is not Integer and isInteger is false', () => {
-    expect(validators.numericality({value: 50.1, isInteger: false})).toBe(true);
+    expect(validators.number({value: 50.1, isInteger: false})).toBe(true);
   });
   
   it('returns true if is odd', () => {
-    expect(validators.numericality({value: 3, isOdd: true})).toBe(true);
+    expect(validators.number({value: 3, isOdd: true})).toBe(true);
   });
   
   it('returns false if is not odd', () => {
-    expect(validators.numericality({value: 2, isOdd: true})).toBe(false);
+    expect(validators.number({value: 2, isOdd: true})).toBe(false);
   });
   
   it('returns true if is not odd and isOdd is false', () => {
-    expect(validators.numericality({value: 2, isOdd: false})).toBe(true);
+    expect(validators.number({value: 2, isOdd: false})).toBe(true);
   });
   
   it('returns true if is even', () => {
-    expect(validators.numericality({value: 2, isEven: true})).toBe(true);
+    expect(validators.number({value: 2, isEven: true})).toBe(true);
   });
   
   it('returns false if is not even', () => {
-    expect(validators.numericality({value: 3, isEven: true})).toBe(false);
+    expect(validators.number({value: 3, isEven: true})).toBe(false);
   });
   
   it('returns true if is not even and isEven is false', () => {
-    expect(validators.numericality({value: 3, isEven: false})).toBe(true);
+    expect(validators.number({value: 3, isEven: false})).toBe(true);
   });
   
   it('returns true if is equal', () => {
-    expect(validators.numericality({value: 3, equalTo: 3})).toBe(true);
+    expect(validators.number({value: 3, equalTo: 3})).toBe(true);
   });
   
   it('returns false if is not equal', () => {
-    expect(validators.numericality({value: 4, equalTo: 3})).toBe(false);
+    expect(validators.number({value: 4, equalTo: 3})).toBe(false);
   });
   
   it('returns true if is other', () => {
-    expect(validators.numericality({value: 3, otherThan: 4})).toBe(true);
+    expect(validators.number({value: 3, otherThan: 4})).toBe(true);
   });
   
   it('returns false if is not other', () => {
-    expect(validators.numericality({value: 4, otherThan: 4})).toBe(false);
+    expect(validators.number({value: 4, otherThan: 4})).toBe(false);
   });
   
   it('returns true if is greater', () => {
-    expect(validators.numericality({value: 4, greaterThan: 3})).toBe(true);
+    expect(validators.number({value: 4, greaterThan: 3})).toBe(true);
   });
   
   it('returns false if is not greater', () => {
-    expect(validators.numericality({value: 4, greaterThan: 4})).toBe(false);
+    expect(validators.number({value: 4, greaterThan: 4})).toBe(false);
   });
   
   it('returns true if is greater or equal', () => {
-    expect(validators.numericality({value: 4, greaterThanOrEqualTo: 4})).toBe(true);
+    expect(validators.number({value: 4, greaterThanOrEqualTo: 4})).toBe(true);
   });
   
   it('returns false if is not greater or equal', () => {
-    expect(validators.numericality({value: 4, greaterThanOrEqualTo: 5})).toBe(false);
+    expect(validators.number({value: 4, greaterThanOrEqualTo: 5})).toBe(false);
   });
   
   it('returns true if is less', () => {
-    expect(validators.numericality({value: 4, lessThan: 5})).toBe(true);
+    expect(validators.number({value: 4, lessThan: 5})).toBe(true);
   });
   
   it('returns false if is not less', () => {
-    expect(validators.numericality({value: 4, lessThan: 4})).toBe(false);
+    expect(validators.number({value: 4, lessThan: 4})).toBe(false);
   });
   
   it('returns true if is less or equal', () => {
-    expect(validators.numericality({value: 4, lessThanOrEqualTo: 4})).toBe(true);
+    expect(validators.number({value: 4, lessThanOrEqualTo: 4})).toBe(true);
   });
   
   it('returns false if is not less or equal', () => {
-    expect(validators.numericality({value: 4, lessThanOrEqualTo: 3})).toBe(false);
+    expect(validators.number({value: 4, lessThanOrEqualTo: 3})).toBe(false);
   });
 });

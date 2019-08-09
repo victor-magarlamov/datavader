@@ -4,7 +4,7 @@ const validator: {[key: string]: Function} = {
   ...validators,
 }
 
-const addCustomValidator = (rule: string, func: Function): void => {
+const addValidatorRule = (rule: string, func: Function): void => {
   validator[rule] = func;
 }
 
@@ -17,7 +17,7 @@ const customOptions: {[key: string]: Function} = {
   },
 }
 
-const addCustomOptions = (rule: string, func: Function): void => {
+const addParameterRule = (rule: string, func: Function): void => {
   customOptions[rule] = func;
 }
 
@@ -52,7 +52,9 @@ const validateByScheme = (item: any, validationScheme: any): {[key: string]: str
     const rules = Object.keys(validationScheme[property]);
 
     for (let rule of rules) {
-      const result = validate(item).check(property).with(rule, validationScheme[property][rule]);
+      const result = validate(item)
+        .check(property)
+        .with(rule, validationScheme[property][rule]);
       
       if (!result) {
         if (!errors[property]) {
@@ -70,6 +72,6 @@ const validateByScheme = (item: any, validationScheme: any): {[key: string]: str
 export {
   validate,
   validateByScheme,
-  addCustomValidator,
-  addCustomOptions,
+  addValidatorRule,
+  addParameterRule,
 }

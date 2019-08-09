@@ -17,7 +17,7 @@ describe('validateByScheme', () => {
       absence: {},
     },
     age: {
-      numericality: {
+      number: {
         lessThan: user.age + 10,
         greaterThanOrEqualTo: user.age,
         isEven: true,
@@ -53,7 +53,7 @@ describe('validateByScheme', () => {
       presence: {exist: true},
     },
     age: {
-      numericality: {lessThan: user.age},
+      number: {lessThan: user.age},
     },
     quality: {
       inclusion: {values: wrongQualities},

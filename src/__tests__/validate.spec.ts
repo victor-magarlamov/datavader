@@ -73,45 +73,45 @@ describe('validate', () => {
     });
   });
   
-  describe('numericality', () => {
+  describe('number', () => {
     it('is valid when age is Integer', () => {
-      expect(validate(user).check('age').with('numericality', {isInteger: true})).toBe(true);
+      expect(validate(user).check('age').with('number', {isInteger: true})).toBe(true);
     });
     
     it('is invalid when age is Integer', () => {
-      expect(validate(user).check('age').with('numericality', {isInteger: false})).toBe(false);
+      expect(validate(user).check('age').with('number', {isInteger: false})).toBe(false);
     });
     
     it('is valid when age is even', () => {
-      expect(validate(user).check('age').with('numericality', {isEven: true})).toBe(true);
+      expect(validate(user).check('age').with('number', {isEven: true})).toBe(true);
     });
     
     it('is invalid when age is odd', () => {
-      expect(validate(user).check('age').with('numericality', {isOdd: true})).toBe(false);
+      expect(validate(user).check('age').with('number', {isOdd: true})).toBe(false);
     });
     
     it('is valid when age is equal', () => {
-      expect(validate(user).check('age').with('numericality', {equalTo: user.age})).toBe(true);
+      expect(validate(user).check('age').with('number', {equalTo: user.age})).toBe(true);
     });
     
     it('is valid when age is otherThan', () => {
-      expect(validate(user).check('age').with('numericality', {otherThan: user.age + 1})).toBe(true);
+      expect(validate(user).check('age').with('number', {otherThan: user.age + 1})).toBe(true);
     });
     
     it('is valid when age is greaterThan', () => {
-      expect(validate(user).check('age').with('numericality', {greaterThan: user.age - 5})).toBe(true);
+      expect(validate(user).check('age').with('number', {greaterThan: user.age - 5})).toBe(true);
     });
     
     it('is valid when age is greaterThanOrEqualTo', () => {
-      expect(validate(user).check('age').with('numericality', {greaterThan: user.age - 5})).toBe(true);
+      expect(validate(user).check('age').with('number', {greaterThan: user.age - 5})).toBe(true);
     });
     
     it('is valid when age is lessThan', () => {
-      expect(validate(user).check('age').with('numericality', {lessThan: user.age + 10})).toBe(true);
+      expect(validate(user).check('age').with('number', {lessThan: user.age + 10})).toBe(true);
     });
     
     it('is valid when age is lessThanOrEqualTo', () => {
-      expect(validate(user).check('age').with('numericality', {lessThanOrEqualTo: user.age + 10})).toBe(true);
+      expect(validate(user).check('age').with('number', {lessThanOrEqualTo: user.age + 10})).toBe(true);
     });
   });
 });

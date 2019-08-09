@@ -1,6 +1,6 @@
-import { validate, addCustomValidator, addCustomOptions } from '../.';
+import { validate, addValidatorRule, addParameterRule } from '../.';
 
-describe('addCustomOptions', () => {
+describe('addParameterRule', () => {
   const customValidator = ({value1, value2}: any) => {
     try {
       return value1 !== value2;
@@ -17,8 +17,8 @@ describe('addCustomOptions', () => {
   }
 
   beforeAll(() => {
-    addCustomValidator('names', customValidator);
-    addCustomOptions('names', customOptions);
+    addValidatorRule('names', customValidator);
+    addParameterRule('names', customOptions);
   });
 
   it('is valid', () => {

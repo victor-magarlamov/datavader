@@ -1,6 +1,6 @@
-import { validate, addCustomValidator } from '../.';
+import { validate, addValidatorRule } from '../.';
 
-describe('addCustomValidator', () => {
+describe('addValidatorRule', () => {
   const customValidator = ({value, min}: any) => {
     try {
       return value.length >= min;
@@ -10,7 +10,7 @@ describe('addCustomValidator', () => {
   }
 
   beforeAll(() => {
-    addCustomValidator('minPasswordLength', customValidator);
+    addValidatorRule('minPasswordLength', customValidator);
   });
 
   it('is valid', () => {

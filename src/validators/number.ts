@@ -11,7 +11,7 @@ interface Params {
   lessThanOrEqualTo?: number;
 }
 
-export default function numericality (params: Params): boolean {
+export default function number (params: Params): boolean {
   try {
     const {
       value,

@@ -4,7 +4,7 @@ import confirmation from './confirmation';
 import inclusion from './inclusion';
 import exclusion from './exclusion';
 import length from './length';
-import numericality from './numericality';
+import number from './number';
 
 export {
   presence,
@@ -13,5 +13,5 @@ export {
   inclusion,
   exclusion,
   length,
-  numericality
+  number
 }
