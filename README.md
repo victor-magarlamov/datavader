@@ -164,7 +164,7 @@ If there are any errors, it will return an array with failed rules:
 ```js
 {
   username: ['presence'],
-  password: ['confirmation', ''length]
+  password: ['confirmation', 'length']
 }
 ```
 
