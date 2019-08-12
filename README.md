@@ -183,9 +183,11 @@ const isEmailValidator = ({value, domains}) => {
 Now you should register it as a validation rule.
 
 ```js
-addValidatorRule('isEmail', isEmailValidator);
+addValidatorRule('isEmail', isEmailValidator, isPrimary);
 ```
-And ater that you can use it.
+The last parameter is optional. If it is true the validator will be checked as primary. Primary validators are executed in first order. If a primary validator returns false, all of the following validators will be skipped. By default there are two primary validators  - 'presence' and 'absence'.
+
+So, after that you can use it.
 ```js
 validate(user).check('email').with('isEmail', {domains: ['wubba', 'lubba', 'dub']});
 ```
