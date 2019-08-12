@@ -114,6 +114,14 @@ describe('inclusion', () => {
   it('returns false if value is not in values', () => {
     expect(validators.inclusion({value: 10, values: [1,2,3]})).toBe(false);
   });
+  
+  it('returns true if value is undefined', () => {
+    expect(validators.inclusion({value: undefined, values: [1,2,3]})).toBe(true);
+  });
+  
+  it('returns true if value is null', () => {
+    expect(validators.inclusion({value: null, values: [1,2,3]})).toBe(true);
+  });
 });
 
 describe('exclusion', () => {
@@ -123,6 +131,14 @@ describe('exclusion', () => {
   
   it('returns false if value is in values', () => {
     expect(validators.exclusion({value: 1, values: [1,2,3]})).toBe(false);
+  });
+
+  it('returns true if value is undefined', () => {
+    expect(validators.exclusion({value: undefined, values: [1,2,3]})).toBe(true);
+  });
+  
+  it('returns true if value is null', () => {
+    expect(validators.exclusion({value: null, values: [1,2,3]})).toBe(true);
   });
 });
 
@@ -153,6 +169,14 @@ describe('length', () => {
   
   it('returns true if value is in range', () => {
     expect(validators.length({value: 'abs', max: 4, min: 0})).toBe(true);
+  });
+  
+  it('returns true if value is undefined', () => {
+    expect(validators.length({value: undefined, is: 3})).toBe(true);
+  });
+  
+  it('returns true if value is null', () => {
+    expect(validators.length({value: null, is: 2})).toBe(true);
   });
 });
 
@@ -239,5 +263,13 @@ describe('number', () => {
   
   it('returns false if is not less or equal', () => {
     expect(validators.number({value: 4, lessThanOrEqualTo: 3})).toBe(false);
+  });
+  
+  it('returns true if value is undefined', () => {
+    expect(validators.number({value: undefined})).toBe(true);
+  });
+  
+  it('returns true if value is null', () => {
+    expect(validators.number({value: null})).toBe(true);
   });
 });

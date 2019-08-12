@@ -6,6 +6,8 @@ interface Params {
 export default function inclusion (params: Params): boolean {
   try {
     const {value, values} = params;
+    
+    if (value === null || value === undefined) return true;
 
     return (values.indexOf(value) !== -1);
   } catch (e) {

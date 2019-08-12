@@ -21,7 +21,7 @@ export default function number (params: Params): boolean {
       lessThan, lessThanOrEqualTo,
     } = params;
 
-    if (!value) return false;
+    if (value === null || value === undefined) return true;
     
     if (isInteger && Math.floor(value) !== value) return false;
     if (isInteger === false && (value % 1) === 0) return false;
