@@ -7,11 +7,11 @@ describe('validateByScheme', () => {
   
   const scheme = {
     name: {
-      presence: {exist: true},
       length: {
         min: 1,
         max: user.name.length + 1,
       },
+      presence: {exist: true},
     },
     lastName: {
       absence: {},
@@ -70,5 +70,18 @@ describe('validateByScheme', () => {
   
   it('has errors', () => {
     expect(Object.keys(validateByScheme(user, invalidScheme))).toEqual(Object.keys(invalidScheme));
-  }); 
+  });
+
+  describe('if primary validator gets error', () => {
+    const validateNameScheme = {
+      name: {
+        length: {min: 3},
+        presence: {exist: true},
+      }
+    }
+
+    it('has only primary validator error', () => {
+      expect(validateByScheme({}, validateNameScheme)).toEqual({name: ['presence']});
+    });
+  });
 });

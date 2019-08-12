@@ -1,11 +1,19 @@
 import * as validators from './validators/';
 
+const primaryValidators: string[] = [
+  'absence', 'presence',
+]
+
 const validator: {[key: string]: Function} = {
   ...validators,
 }
 
-const addValidatorRule = (rule: string, func: Function): void => {
+const addValidatorRule = (rule: string, func: Function, isPrimary?: boolean): void => {
   validator[rule] = func;
+
+  if (isPrimary) {
+    primaryValidators.push(rule);
+  }
 }
 
 const customOptions: {[key: string]: Function} = {
@@ -44,25 +52,41 @@ const validate = (item: any): any => {
   }
 }
 
-const validateByScheme = (item: any, validationScheme: any): {[key: string]: string[]} => {
-  const properties = Object.keys(validationScheme);
+const checkProperty = (property: string, item: any, scheme: any, rules: string[]): string[] => {
+  let errors: string[] = [];
+  
+  for (let rule of rules) {
+    const result = validate(item)
+      .check(property)
+      .with(rule, scheme[property][rule]);
+
+    if (!result) {
+      errors.push(rule);
+
+      if (~primaryValidators.indexOf(rule)) {
+        break;
+      }
+    }
+  }
+
+  return errors;
+}
+
+const sortRulesByPrimary = (item1: string, item2: string): number => {
+  return (primaryValidators.indexOf(item2)) - primaryValidators.indexOf(item1);
+}
+
+const validateByScheme = (item: any, scheme: any): {[key: string]: string[]} => {
+  const properties = Object.keys(scheme);
   let errors: {[key: string]: string[]} = {};
 
   for (let property of properties) {
-    const rules = Object.keys(validationScheme[property]);
+    const rules = Object.keys(scheme[property]).sort(sortRulesByPrimary);
 
-    for (let rule of rules) {
-      const result = validate(item)
-        .check(property)
-        .with(rule, validationScheme[property][rule]);
-      
-      if (!result) {
-        if (!errors[property]) {
-          errors[property] = [];
-        }
+    let result = checkProperty(property, item, scheme, rules);
 
-        errors[property].push(rule);
-      }
+    if (result.length > 0) {
+      errors[property] = result;
     }
   }
 
