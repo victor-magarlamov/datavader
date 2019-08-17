@@ -81,7 +81,7 @@ describe('validateByScheme', () => {
     }
 
     it('has only primary validator error', () => {
-      expect(validateByScheme({}, validateNameScheme)).toEqual({name: ['presence']});
+      expect(validateByScheme({}, validateNameScheme)).toEqual({name: ['name must be present']});
     });
   });
 });
