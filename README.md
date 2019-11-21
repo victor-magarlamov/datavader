@@ -9,16 +9,6 @@ npm i datavader
 ```js
 import { validate, validateByScheme, addValidatorRule, addParameterRule } from 'datavader';
 
-// it will be tested
-
-const user = {
-  name: 'Rick',
-  age: 70,
-  quality: 'alcoholic',
-  catchphrase: 'wubba lubba dub-dub',
-  relatives: ['morty', 'summer', 'beth']
-};
-
 // use validate method to сheck a single property
 
 validate(user).check('name').with('presence', {exist: true});
